@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="content">
+        <div class="login-box">
+            <h1 id="stulabel">选择班级</h1>
+            <div class="output-frame">
+                <input type="button" class="buttonAlpha" id="class03" value="03" onclick="changeClass03()"></input>
+                <input type="button" class="buttonAlpha" id="class11" value="11" onclick="changeClass11()"></input>
+                <input type="button" class="buttonAlpha" id="class12" value="12" onclick="changeClass12()"></input>
+            </div>
+            <div class="output-frame">
+                <button type="button" class="login-btn" id="submit" onclick="nameRom()">开 始</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script type="text/javascript">
+    var class03list = [
+        "杨洁萍",
+        "宁致迪",
+        "施佳乐",
+        "温俊轩",
+        "黄恩慈",
+        "李云",
+        "王宇",
+        "刘芷涵",
+        "黄瑾诚",
+        "彭鑫",
+        "谢阳",
+        "胡月",
+        "彭楠",
+        "曾锦辉",
+        "雷函",
+        "陈雅玲",
+        "曾怡琴",
+        "陈润优",
+        "欧欣琳",
+        "何小辉",
+        "付凝",
+        "邓钰娇",
+        "曾俊明",
+        "曾国涛",
+        "魏文轩",
+        "崔莉芹",
+        "邹杰",
+        "余菁婧",
+        "赖钰娟",
+        "曾杰",
+        "王子轩",
+        "谢邱彤",
+        "刘勇麒",
+        "宁佳",
+        "温静怡",
+        "李鼎",
+        "刘信杰",
+        "杨丹",
+        "邓紫茹",
+        "张伟祺",
+        "张桓滔",
+        "黎强",
+        "管文菲",
+        "陈欣怡",
+        "鄢志富",
+        "杨忆成",
+        "徐琳贤",
+        "陈茗愽",
+        "李漫枝",
+        "卢奕涵",
+        "黄丽珍",
+        "李桂强",
+        "余俊发"
+    ]
+
+    var class11list = [
+        "钟子能",
+        "潘  祺",
+        "黄少杰",
+        "崔怡馨",
+        "谢小芳",
+        "武天浩",
+        "童  姣",
+        "郭雨平",
+        "方宇晴",
+        "陈鑫强",
+        "张  莹",
+        "杨芳静",
+        "胡凯文",
+        "高  翔",
+        "黄  倓",
+        "李嘉豪",
+        "王烨晨",
+        "邓志祥",
+        "彭静希",
+        "陈文昊",
+        "杨  颖",
+        "张韵笛",
+        "杨依健",
+        "温家豪",
+        "熊宇翾",
+        "曾维聪",
+        "黄芯瑜",
+        "赖诗彤",
+        "曾小峰",
+        "邓艺珍",
+        "何鉴彪",
+        "刘  萍",
+        "曾伟鑫",
+        "杨  殷",
+        "官振斌",
+        "徐佳潞",
+        "李雨彤",
+        "黄云龙",
+        "何文斌",
+        "李文彬",
+        "雷雨昊",
+        "赵  鑫",
+        "温碧琪",
+        "柯佳文",
+        "宋楚炫",
+        "李柔颖"]
+
+    var class12list = [
+        "蔡如鑫",
+        "陈佳欣",
+        "陈翔",
+        "程强鑫",
+        "邓军浩",
+        "邓欣怡",
+        "邓仪涛",
+        "邓子诚",
+        "邓子龙",
+        "冯文",
+        "符如毅",
+        "管柔羽",
+        "管依",
+        "郭宁昊",
+        "何毅",
+        "黄胜",
+        "黄馨怡",
+        "黄星华",
+        "黄子瑜",
+        "柯恩民",
+        "赖嘉珑",
+        "赖刘良",
+        "赖苏航",
+        "李琳瑶",
+        "李名轩",
+        "李语铃",
+        "廖易涛",
+        "廖宇航",
+        "林莹",
+        "刘家豪",
+        "刘明伟",
+        "刘舒",
+        "宁雨荨",
+        "宁子坚",
+        "彭家辉",
+        "彭堇睿",
+        "彭志宇",
+        "邱怡婷",
+        "邱志强",
+        "宋慧兰",
+        "宋雅婷",
+        "王妞",
+        "吴雨嘉",
+        "萧茹秋",
+        "肖程",
+        "谢贻军",
+        "徐舒扬",
+        "鄢思媛",
+        "游聪",
+        "袁雯",
+        "张骏宁",
+        "肖韵青"
+    ]
+
+    var stulist = []
+
+    function changeClass03() {
+        this.stulist = class03list
+        console.log(this.stulist.length)
+    }
+    function changeClass11() {
+        this.stulist = class11list
+        console.log(this.stulist.length)
+    }
+    function changeClass12() {
+        this.stulist = class12list
+        console.log(this.stulist.length)
+    }
+    var isStart = false
+    var isStop = false
+
+    // document.getElementById('submit').onclick = function () {
+
+    //     this.isStart = !this.isStart
+    //     this.isStop = false
+
+    //     if (this.stulist.length == 0) {
+    //         alert('请选择班级！')
+    //     } else {
+    //         while (isStart) {
+    //             loopName()
+    //             if (isStop) {
+    //                 isStop = false
+    //                 break
+    //             }
+    //         }
+
+    //     }
+    //     this.value = this.isStart ? '开始点名' : '暂停点名'
+
+
+    // }
+
+    function nameRom() {
+        if (this.stulist.length == 0) {
+            alert('请选择班级！')
+        } else {
+            //点击开始，开始变为停止，并改变按钮颜色 
+            if (submit.innerHTML == '开 始') {
+                submit.innerHTML = '停 止';
+                submit.style.backgroundColor = '#f50015';
+                submit.style.borderColor = '#796c9c';
+                //设置run为true，显示每0.1s的名字
+                run = true;
+            } else {
+                //点击暂停，改变按钮颜色，并设置run为false，停止显示名字
+                submit.innerHTML = '开 始';
+                submit.style.backgroundColor = '#248011';
+                run = false;
+            }
+            var flag = setInterval(loopName, 100);
+        }
+    }
+
+    function loopName() {
+        if (run) {
+            document.getElementById("stulabel").innerHTML = stulist[
+                Math.floor(Math.random() * stulist.length)
+            ]
+            console.log(stulist[
+                Math.floor(Math.random() * stulist.length)
+            ])
+        }
+    }
+</script>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .content {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        background-color: antiquewhite;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .content::before {
+        position: absolute;
+        content: "";
+        display: block;
+        width: 300%;
+        height: 100%;
+        /* background-image: linear-gradient(to bottom right,
+    rgb(25, 0, 255), rgb(111, 0, 255), rgb(242, 0, 250)); */
+        background-color: #c5f3ff;
+        background-image:
+
+            radial-gradient(closest-side, rgb(242, 0, 250), rgba(235, 105, 78, 0)),
+            radial-gradient(closest-side, rgb(11, 243, 197), rgba(243, 11, 164, 0)),
+            radial-gradient(closest-side, rgb(25, 0, 255), rgba(254, 234, 131, 0));
+        background-size: 130vw 130vh, 120vw 120vh, 100vw 150vh;
+        background-position: -30vw -80vh, 30vw -20vh, -20vw 20vh;
+        background-repeat: no-repeat;
+        filter: blur(4px);
+        animation: bg-anim 15s alternate infinite linear;
+    }
+
+    @keyframes bg-anim {
+        from {
+            left: 0;
+        }
+
+        to {
+            left: -50%;
+        }
+    }
+
+    .login-box {
+        position: relative;
+        width: 400px;
+        height: 400px;
+        background-color: rgba(74, 0, 170, 0.3);
+        border-radius: 30px;
+        color: #fff;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .login-box>h1 {
+        margin: 50px 0 10px 0;
+        font-size: 72px;
+    }
+
+    .output-frame {
+        margin-top: 20px;
+        width: 300px;
+        height: 40px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .buttonAlpha {
+        border: none;
+        min-width: 60px;
+        min-height: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.2rem;
+        background: rgba(255, 255, 255, 0.08);
+        color: #fff;
+        transition: background 200ms ease, color 200ms ease;
+    }
+
+    .buttonAlpha:hover {
+        background: rgba(36, 36, 36, 0.678);
+        color: rgb(255, 255, 255);
+
+    }
+
+    .buttonAlpha:focus {
+        background: rgba(138, 0, 202, 0.658);
+        color: rgb(255, 255, 255);
+
+    }
+
+
+    .login-btn {
+        /* margin-top: 10%;
+    width: 50%;
+    height: 20%;
+    font-size: 36px;
+    border: none;
+    background-color: rgba(212, 0, 219, 0.6);
+    color: #fff;
+    border-radius: 40px; */
+        border: none;
+        min-width: 150px;
+        min-height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2rem;
+        background: rgba(255, 255, 255, 0.08);
+        color: #fff;
+        transition: background 200ms ease, color 200ms ease;
+        border-radius: 10px;
+    }
+
+    .login-btn:hover {
+        background: rgba(36, 36, 36, 0.678);
+        color: rgb(255, 255, 255);
+
+    }
+</style>
